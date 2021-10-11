@@ -1,0 +1,39 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+
+    <div class="row">
+
+    {% for product in products %}
+    
+
+        <div class="col-lg-4">
+            <img class="thumbnail" src="{{ product.imageURL }}" alt="">
+            <div class="box-element product">
+                <strong>{{ product.name }}</strong>
+                <hr>
+
+                {% comment %} update-cart is my own class in cart.js{% endcomment %}
+                <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-success  add-btn update-cart" type="submit">Add to cart</button>
+                 <a class="btn btn-outline-secondary" href="#">view</a>
+                <h4 class="float-right">${{ product.price}}</h4>
+            </div>
+
+
+
+        {% comment %}end of row{% endcomment %}
+        </div>
+            {% endfor %}
+{% comment %}end of colunmn{% endcomment %}
+        </div>
+
+
+
+
+
+{% endblock %}
